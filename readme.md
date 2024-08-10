@@ -25,13 +25,13 @@
 
 6\. Training  
    
-CUDA\_VISIBLE\_DEVICES=1 nnUNet\_train 3d\_fullres nnUNetTrainerV2 502 0 \-pretrained\_weights /home/aiotlabws/SonDinh/MultiTalent/media/nnUNet\_trained\_models/nnUNet/3d\_fullres/Task082\_BraTS2020/nnUNetTrainerV2\_\_nnUNetPlansv2.1/fold\_0/model\_final\_checkpoint.model  
+CUDA\_VISIBLE\_DEVICES=1 nnUNet_train_DDP \_train 3d\_fullres nnUNetTrainerV2_DDP  502 all \-pretrained\_weights /home/aiotlabws/SonDinh/MultiTalent/media/nnUNet\_trained\_models/nnUNet/3d\_fullres/Task082\_BraTS2020/nnUNetTrainerV2\_\_nnUNetPlansv2.1/fold\_0/model\_final\_checkpoint.model  
 Trong đó:
 
 - CUDA\_VISIBLE\_DEVICES=1: chọn device nhưng mà hơi ngược nên check xem chạy đúng device chưa  
 - 502 : task, anh có thể set là 502 (50%) hoặc 503 (100%)  
-- 0 : fold 0 dùng làm val ( ko cần thay đổi)
+- all : ( ko cần thay đổi)
 
-     Nếu train tiếp với lastest checkpoint: nnUNet\_train 3d\_fullres nnUNetTrainerV2 502 0 \-c 
+     Nếu train tiếp với lastest checkpoint: nnUNet_train_DDP\_train 3d\_fullres nnUNetTrainerV2_DDP 502 0 \-c 
 
 7\. Xem tiến trình train ở: media/nnUNet\_trained\_models/nnUNet/3d\_fullres

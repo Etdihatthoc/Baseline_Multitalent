@@ -33,7 +33,7 @@ class ExperimentPlanner3D_v21(ExperimentPlanner):
         self.data_identifier = "nnUNetData_plans_v2.1"
         self.plans_fname = join(self.preprocessed_output_folder,
                                 "nnUNetPlansv2.1_plans_3D.pkl")
-        self.unet_base_num_features = 32
+        self.unet_base_num_features = 30
 
     def get_target_spacing(self):
         """

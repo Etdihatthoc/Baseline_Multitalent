@@ -37,11 +37,25 @@ def load_pretrained_weights(network, fname, verbose=False):
     model_dict = network.state_dict()
     ok = True
     for key, _ in model_dict.items():
+        pretrain_key = key.replace('module.','')
+        print(pretrain_key)
         if ('conv_blocks' in key):
-            if (key in pretrained_dict) and (model_dict[key].shape == pretrained_dict[key].shape):
+            if (pretrain_key in pretrained_dict) and (model_dict[key].shape == pretrained_dict[pretrain_key].shape):
+                #print(model_dict[key].shape)
+                #print(pretrained_dict[pretrain_key].shape)
                 continue
             else:
                 ok = False
+                print("=======================")
+                print(key, pretrain_key)
+                print(pretrain_key in pretrained_dict)
+                print(model_dict[key].shape )
+                print(pretrained_dict[pretrain_key].shape)
+                # 
+                # print(model_dict.keys())
+                # print(key)
+                #print(model_dict[key].shape)
+                # print(pretrained_dict.keys())
                 break
 
     # filter unnecessary keys

@@ -138,6 +138,7 @@ def load_model_and_checkpoint_files(folder, folds=None, mixed_precision=None, ch
         raise ValueError("Unknown value for folds. Type: %s. Expected: list of int, int, str or None", str(type(folds)))
 
     trainer = restore_model(join(folds[0], "%s.model.pkl" % checkpoint_name), fp16=mixed_precision)
+    print(type(trainer))
     trainer.output_folder = folder
     trainer.output_folder_base = folder
     trainer.update_fold(0)

@@ -45,9 +45,7 @@ if __name__ == "__main__":
         patdir = join(cur, p)
         patient_name = p
         patient_names.append(patient_name + "_0000")
-        patient_names.append(patient_name + "_0001")
-        patient_names.append(patient_name + "_0002")
-        patient_names.append(patient_name + "_0003")
+        
         '''
         t1 = join(patdir, p + "_t1.nii.gz")
         t1c = join(patdir, p + "_t1ce.nii.gz")
@@ -64,9 +62,6 @@ if __name__ == "__main__":
         ]), "%s" % patient_name'''
     
         shutil.copy(join(cur,filename), join(target_imagesTr, p + "_0000.nii.gz"))
-        shutil.copy(join(cur,filename), join(target_imagesTr, p + "_0001.nii.gz"))
-        shutil.copy(join(cur,filename), join(target_imagesTr, p + "_0002.nii.gz"))
-        shutil.copy(join(cur,filename), join(target_imagesTr, p + "_0003.nii.gz"))
         
         shutil.copy(join("/home/aiotlabws/SonDinh/nnUNet_raw_data/Task502_50pBraTS2023/labelsTr",filename), join(target_labelsTr, p + ".nii.gz"))
         
@@ -89,9 +84,6 @@ if __name__ == "__main__":
             patdir = join(downloaded_data_dir_test, p)
             patient_name = p
             patient_namesTs.append(patient_name + "_0000")
-            patient_namesTs.append(patient_name + "_0001")
-            patient_namesTs.append(patient_name + "_0002")
-            patient_namesTs.append(patient_name + "_0003")
             '''
             t1 = join(patdir, p + "_t1.nii.gz")
             t1c = join(patdir, p + "_t1ce.nii.gz")
@@ -111,9 +103,7 @@ if __name__ == "__main__":
             shutil.copy(flair, join(target_imagesTs, patient_name + "_0003.nii.gz"))'''
             
             shutil.copy(join(cur,filename), join(target_imagesTs, p + "_0000.nii.gz"))
-            shutil.copy(join(cur,filename), join(target_imagesTs, p + "_0001.nii.gz"))
-            shutil.copy(join(cur,filename), join(target_imagesTs, p + "_0002.nii.gz"))
-            shutil.copy(join(cur,filename), join(target_imagesTs, p + "_0003.nii.gz"))
+            
             
             shutil.copy(join("/home/aiotlabws/SonDinh/nnUNet_raw_data/Task502_50pBraTS2023/labelsTs",filename), join(target_labelsTs, p + ".nii.gz"))
 
@@ -125,10 +115,7 @@ if __name__ == "__main__":
     json_dict['licence'] = "CC-BY-SA 4.0"
     json_dict['release'] = "1.0 2023"
     json_dict['modality'] = {
-        "0": "T1",
-        "1": "T1CE",
-        "2": "T2",
-        "3": "FLAIR"
+        "0": "FLAIR"
     }
     json_dict['labels'] = {
         "0": "background",

@@ -45,6 +45,8 @@ def get_default_configuration(network, task, network_trainer, plans_identifier=d
         plans_file = join(preprocessing_output_dir, task, plans_identifier + "_plans_3D.pkl")
 
     plans = load_pickle(plans_file)
+    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa =======================")
+    print(plans)
     possible_stages = list(plans['plans_per_stage'].keys())
 
     if (network == '3d_cascade_fullres' or network == "3d_lowres") and len(possible_stages) == 1:

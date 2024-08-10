@@ -15,7 +15,7 @@
    export WORLD_SIZE=1
    export RANK=0
      
-5. Với tập dataset, setup dữ liệu như sau  
+5. Xem laị file MultiTalent/nnunet/experiment_planning/experiment_planner_baseline_3DUNet_v21.py của package nnUNet xem self.unet_base_num_features = 30 chưa, nếu chưa sửa lại
 1. Tái cấu trúc dữ liệu  
 - python nnunet/dataset\_conversion/Task500\_1pBraTS2023.py  
 - python nnunet/dataset\_conversion/Task501\_10pBraTS2023.py  

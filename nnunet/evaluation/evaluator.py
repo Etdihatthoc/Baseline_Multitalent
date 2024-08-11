@@ -189,9 +189,39 @@ class Evaluator:
         if advanced:
             eval_metrics += self.advanced_metrics
 
+        # Giả sử chúng ta có các nhãn cần nhóm lại
+        new_labels = {
+            "TC": [1, 2],      # Nhóm lớp 1 và 2
+            "WC": [1, 2, 3]  # Nhóm lớp 1, 2 và 3
+        }
+
+        # Tạo một từ điển để lưu kết quả đánh giá cho các nhãn mới
+        self.result = OrderedDict()
+
+        # Xử lý từng nhóm nhãn trong new_labels
+        for label_name, label_group in new_labels.items():
+            self.result[label_name] = OrderedDict()
+            current_test = 0
+            current_reference = 0
+            
+            # Cộng dồn kết quả cho các nhãn trong nhóm
+            for l in label_group:
+                current_test += (self.test == l)
+                current_reference += (self.reference == l)
+            
+            # Thiết lập ma trận nhầm lẫn cho nhóm nhãn hiện tại
+            self.confusion_matrix.set_test(current_test)
+            self.confusion_matrix.set_reference(current_reference)
+            
+            # Tính toán các chỉ số đánh giá cho nhóm nhãn hiện tại
+            for metric in eval_metrics:
+                self.result[label_name][metric] = _funcs[metric](confusion_matrix=self.confusion_matrix,
+                                                                nan_for_nonexisting=self.nan_for_nonexisting,
+                                                                **metric_kwargs)
+        
         if isinstance(self.labels, dict):
 
-            for label, name in self.labels.items():
+            for label, name in self.labels.items(): # xét theo từng label
                 k = str(name)
                 self.result[k] = OrderedDict()
                 if not hasattr(label, "__iter__"):

@@ -1,11 +1,16 @@
 
 **CHÚ Ý LABEL**
-Label: 
-1 - ET
-2 - NC
-3 - ED
-TC = ET + NC = 1 + 2
-WT = ET + NC + ED = 1 + 2 + 3
+   Label: 
+
+   1 - ET
+
+   2 - NC
+
+   3 - ED
+
+   TC = ET + NC = 1 + 2
+   
+   WT = ET + NC + ED = 1 + 2 + 3
 
 **Set up thí nghiệm**
 
@@ -38,7 +43,7 @@ WT = ET + NC + ED = 1 + 2 + 3
 
 **TRAINING**
    
-CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --master_port=9000 ./nnunet/run/run_training_DDP.py 3d_fullres nnUNetTrainerV2_DDP 502 all -pretrained_weights /home/aiotlabws/SonDinh/MultiTalent/media/nnUNet_trained_models/nnUNet/3d_fullres/Task100_MultiTalent/MultiTalent_trainer_ddp_2000ep__MultiTalent_bs4/all/model_final_checkpoint.model
+CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --master_port=9000 ./nnunet/run/run_training_DDP.py 3d_fullres nnUNetTrainerV2_DDP 502 all -pretrained_weights media/nnUNet_trained_models/nnUNet/3d_fullres/Task100_MultiTalent/MultiTalent_trainer_ddp_2000ep__MultiTalent_bs4/all/model_final_checkpoint.model
 
 Trong đó:
 

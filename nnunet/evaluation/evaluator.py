@@ -191,7 +191,7 @@ class Evaluator:
 
         # Giả sử chúng ta có các nhãn cần nhóm lại
         new_labels = {
-            "TC": [1, 2],      # Nhóm lớp 1 và 2
+            "TC": [1, 2],      # Nhóm lớp 1 và 3
             "WC": [1, 2, 3]  # Nhóm lớp 1, 2 và 3
         }
 
